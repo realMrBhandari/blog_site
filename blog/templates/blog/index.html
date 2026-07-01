@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %} {% block page_title %}My Blog{% endblock  %} {% endcomment %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/css/includes/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/css/index.css" %}">
+{% endblock  %}
+
+
+{% block page_content %} 
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/truth.webp" %}" alt="Sumit - The Author of This Blog">
+            <h2>SUMIT'S BLOG</h2>
+        </header>
+        <p>Hi, I am Sumit and I love to blog about tech and the world!</p>
+    </section>
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+           
+        </ul>
+    </section>
+    <section id="about" >
+        <h2>What I Do</h2>
+        <p>I love programming, I love to help others and I enjoy exploring new technologies in general!</p>
+        <p>My goal is to keep on growing as a developer and if I could help you do the same, i'd be very happy.</p>
+    </section>
+{% endblock  %}
